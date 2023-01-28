@@ -4,7 +4,11 @@ const PORT = process.env.PORT || 5000;
 require("dotenv").config();
 const cors = require("cors");
 
-const { userRegister, userLogin } = require("./Controllers/user.controller");
+const {
+  userRegister,
+  userLogin,
+  bmiCal,
+} = require("./Controllers/user.controller");
 
 const app = express();
 
@@ -17,6 +21,7 @@ app.get("/", (req, res) => {
 
 app.post("/register", userRegister);
 app.post("/login", userLogin);
+app.post("/bmi", bmiCal);
 
 app.listen(PORT, async () => {
   try {
