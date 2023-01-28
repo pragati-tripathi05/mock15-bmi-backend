@@ -28,11 +28,12 @@ const userLogin = async (req, res) => {
   } else {
     const hash = user.password;
     const name = user.name;
+    const email = user.email;
     const userId = user._id;
     bcrypt.compare(password, hash, function (err, result) {
       if (result) {
         const token = jwt.sign({ id: userId }, process.env.SECRET_KEY);
-        res.send({ msg: "Login Successfull!!", name, token: token });
+        res.send({ msg: "Login Successfull!!", name, email, token: token });
       } else {
         res.status(401).send("Wrong credentials");
       }
