@@ -4,11 +4,8 @@ const PORT = process.env.PORT || 5000;
 require("dotenv").config();
 const cors = require("cors");
 
-const {
-  userRegister,
-  userLogin,
-  bmiCal,
-} = require("./Controllers/user.controller");
+const { userRegister, userLogin } = require("./Controllers/user.controller");
+const { bmiCal } = require("./Controllers/bmi.controller");
 
 const app = express();
 

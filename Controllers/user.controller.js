@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { User } = require("../Models/user.model");
-const { Bmi } = require("../Models/bmi.model");
 
 const userRegister = async (req, res) => {
   const { name, email, password } = req.body;
@@ -42,11 +41,4 @@ const userLogin = async (req, res) => {
   }
 };
 
-const bmiCal = async (req, res) => {
-  const { weight, height } = req.body;
-  const bmi = weight / (height * height);
-  await bmi.save();
-  res.send("BMI calculated");
-};
-
-module.exports = { userRegister, userLogin, bmiCal };
+module.exports = { userRegister, userLogin };
